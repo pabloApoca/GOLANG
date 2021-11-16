@@ -29,6 +29,38 @@ func main() {
 
 	fmt.Println("Matrices")
 
-	matriz[3][5] = 1
+	matriz[3][0] = 10
+	matriz[3][2] = 20
+	matriz[3][4] = 30
+	matriz[3][6] = 40
 	fmt.Println(matriz)
+
+	fmt.Println("Slices: son como vectores dinamicos")
+	//Donde yo puedo ampliar las dimensiones en tiempo real, si es que me quedo sin espacio
+	matriz2 := []int{2, 5, 8}
+	fmt.Println(matriz2)
+	variante2()
+	variante3()
+	variante4()
+
+}
+
+func variante2() {
+	elementos := [5]int{1, 2, 3, 4, 5}
+	porcion := elementos[1:4] //Me trae los datos entre la posicion 1 y 4
+	fmt.Println(porcion)
+}
+
+func variante3() {
+	elementos := make([]int, 5, 20) //Creo un slide de tipo entero que va a iniciar con un vector de largo de 5 elementos, pero va a soportar hasta 20 elementos
+	fmt.Printf("Largo %d, Capacida %d", len(elementos), cap(elementos))
+
+}
+
+func variante4() {
+	nums := make([]int, 0, 0)
+	for i := 0; i < 100; i++ {
+		nums = append(nums, i)
+	}
+	fmt.Printf("\n Largo %d, Capacidad %d", len(nums), cap(nums))
 }
